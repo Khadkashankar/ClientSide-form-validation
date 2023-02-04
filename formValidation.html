@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get" onsubmit="validateForm()">
+      <!-- form for username, password, email and age-->
+      <label for="name">Name</label>
+      <input type="text" name="'name" value="" id="name" /><br /><br />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        password="'password"
+        value=""
+        id="password"
+        required /><br /><br />
+      <label for="email">Email</label>
+      <input type="email" email="'email" value="" id="email" /><br /><br />
+      <label for="age">Age</label>
+      <input type="number" age="'age" value="" id="age" required /><br /><br />
+      <input type="submit" name="submit" />
+    </form>
+    <script>
+      //it validates the user's input
+      function validateForm() {
+        var nam = document.getElementById("name").value; //get the value of username
+        var pass = document.getElementById("password").value; //get the value of password
+        var ema = document.getElementById("email").value; //get the value of email
+        var ag = document.getElementById("age").value; //get the value of age
+        var regx = /[a-zA-Z][a-zA-Z0-9]*[a-zA-Z0-9][0-9]/; //regular expression for password
+        if (nam == "") {
+          alert("name field is required");
+          return false;
+        } else if (ema == "") {
+          alert("eamil is required");
+
+          return false;
+        } else if (ag < 8 || ag > 60) {
+          alert("age must between 8 to 60");
+          return false;
+        } else if (pass.length < 6 || !regx.test(pass)) {
+          alert(
+            "password length at least 6, start with alphabet and end with digit"
+          );
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
